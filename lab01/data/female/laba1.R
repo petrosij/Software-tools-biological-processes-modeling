@@ -1,0 +1,150 @@
+#Female base frequency
+#Happiness
+
+rm(list = ls())
+library(nortest, lib.loc = "D:/programms/R/R-4.0.2/library")
+
+femaleBaseFreq <- read.table("femaleBaseFreq.csv", header = TRUE, sep = ";", dec = ",")
+happy.data <- femaleBaseFreq$happiness
+fear.data <- femaleBaseFreq$fear
+sadness.data <- femaleBaseFreq$sadness
+anger.data <- femaleBaseFreq$anger
+surprise.data <- femaleBaseFreq$surprise
+disgust.data <- femaleBaseFreq$disgust
+neutral.data <- femaleBaseFreq$neutral
+
+
+min.happy.data <- min(happy.data)
+min.fear.data <- min(fear.data)
+min.sadness.data <- min(sadness.data)
+min.anger.data <- min(anger.data)
+min.surprise.data <- min(surprise.data)
+min.disgust.data <- min(disgust.data)
+min.neutral.data <- min(neutral.data)
+
+max.happy.data <- max(happy.data)
+max.fear.data <- max(fear.data)
+max.sadness.data <- max(sadness.data)
+max.anger.data <- max(anger.data)
+max.surprise.data <- max(surprise.data)
+max.disgust.data <- max(disgust.data)
+max.neutral.data <- max(neutral.data)
+
+  mean.happy.data <- mean(happy.data)
+  mean.fear.data <- mean(fear.data)
+  mean.sadness.data <- mean(sadness.data)
+  mean.anger.data <- mean(anger.data)
+  mean.surprise.data <- mean(surprise.data)
+  mean.disgust.data <- mean(disgust.data)
+  mean.neutral.data <- mean(neutral.data)
+
+
+
+std.happy.data <- sd(happy.data)
+std.fear.data <- sd(fear.data)
+std.sadness.data <- sd(sadness.data)
+std.anger.data <- sd(anger.data)
+std.surprise.data <- sd(surprise.data)
+std.disgust.data <- sd(disgust.data)
+std.neutral.data <- sd(neutral.data)
+
+median.happy.data <- median(happy.data)
+median.fear.data <- median(fear.data)
+median.sadness.data <- median(sadness.data)
+median.anger.data <- median(anger.data)
+median.surprise.data <- median(surprise.data)
+median.disgust.data <- median(disgust.data)
+median.neutral.data <- median(neutral.data)
+
+first.quartile.happy.data <- as.numeric(quantile(happy.data, 0.25))
+first.quartile.fear.data <- as.numeric(quantile(fear.data, 0.25))
+first.quartile.sadness.data <- as.numeric(quantile(sadness.data, 0.25))
+first.quartile.anger.data <- as.numeric(quantile(anger.data, 0.25))
+first.quartile.surprise.data <- as.numeric(quantile(surprise.data, 0.25))
+first.quartile.disgust.data <- as.numeric(quantile(disgust.data, 0.25))
+first.quartile.neutral.data <- as.numeric(quantile(neutral.data, 0.25))
+
+
+third.quartile.happy.data <- as.numeric(quantile(happy.data, 0.75))
+third.quartile.fear.data <- as.numeric(quantile(fear.data, 0.75))
+third.quartile.sadness.data <- as.numeric(quantile(sadness.data, 0.75))
+third.quartile.anger.data <- as.numeric(quantile(anger.data, 0.75))
+third.quartile.surprise.data <- as.numeric(quantile(surprise.data, 0.75))
+third.quartile.disgust.data <- as.numeric(quantile(disgust.data, 0.75))
+third.quartile.neutral.data <- as.numeric(quantile(neutral.data, 0.75))
+
+
+iqr.happy.data <- IQR(happy.data)
+iqr.fear.data <- IQR(fear.data)
+iqr.sadness.data <- IQR(sadness.data)
+iqr.anger.data <- IQR(anger.data)
+iqr.surprise.data <- IQR(surprise.data)
+iqr.disgust.data <- IQR(disgust.data)
+iqr.neutral.data <- IQR(neutral.data)
+
+
+#Second task (histogramm)
+hist(happy.data)
+hist(fear.data)
+hist(sadness.data)
+hist(anger.data)
+hist(surprise.data)
+hist(disgust.data)
+hist(neutral.data)
+
+
+#Third task (razmach)
+boxplot(happy.data, horizontal = TRUE)
+boxplot(fear.data, horizontal = TRUE) # выброс на диаграмме размаха
+boxplot(sadness.data, horizontal = TRUE)
+boxplot(anger.data, horizontal = TRUE)
+boxplot(surprise.data, horizontal = TRUE)
+boxplot(disgust.data, horizontal = TRUE)
+boxplot(neutral.data, horizontal = TRUE)
+
+
+
+
+#Fourth task 
+
+
+boxplot(happy.data,sadness.data,anger.data,surprise.data,fear.data,disgust.data,neutral.data, horizontal = TRUE)
+
+#Fifth task (norm test)
+#p-value > 0.05 -> accept H0
+pearson.test(happy.data)
+pearson.test(sadness.data)
+pearson.test(anger.data)
+pearson.test(surprise.data)
+pearson.test(fear.data)
+pearson.test(disgust.data)
+pearson.test(neutral.data)
+
+lillie.test(happy.data)
+lillie.test(sadness.data)
+lillie.test(anger.data)
+lillie.test(surprise.data)
+lillie.test(fear.data)
+lillie.test(disgust.data)
+lillie.test(neutral.data)
+
+sf.test(happy.data)
+sf.test(sadness.data)
+sf.test(anger.data)
+sf.test(surprise.data)
+sf.test(fear.data)
+sf.test(disgust.data)
+sf.test(neutral.data)
+
+# 6 task student
+# p-value < 0.05 ->alternative hypotisis 
+t.test(neutral.data,happy.data)
+t.test(neutral.data,fear.data)
+t.test(neutral.data,anger.data)
+t.test(neutral.data,surprise.data)
+t.test(neutral.data,disgust.data)
+t.test(neutral.data,sadness.data)
+
+
+
+'
